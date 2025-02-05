@@ -39,29 +39,21 @@
         .cover button {
             padding: 15px 30px;
             font-size: 1.2em;
-            color: white;
-            background-color: transparent;
-            border: 5px solid;
-            border-image: linear-gradient(45deg, blue, red, purple) 1;
+            color: black;
+            background: linear-gradient(45deg, blue, red, purple);
+            border: none;
             border-radius: 15px; /* Закруглённые углы */
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            animation: borderAnimation 4s linear infinite;
+            animation: backgroundAnimation 4s linear infinite;
         }
-        .cover button span {
-            position: relative;
-            z-index: 1;
-            background: linear-gradient(45deg, blue, red, purple);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        @keyframes borderAnimation {
+        @keyframes backgroundAnimation {
             0% {
-                border-image-source: linear-gradient(45deg, blue, red, purple);
+                background: linear-gradient(45deg, blue, red, purple);
             }
             100% {
-                border-image-source: linear-gradient(405deg, blue, red, purple);
+                background: linear-gradient(405deg, blue, red, purple);
             }
         }
     </style>
@@ -70,7 +62,7 @@
     <div class="cover">
         <h1>Vegard Studio</h1>
         <p>На этом сайте вы найдете множество полезных инструментов и бесплатный доступ к нейросетям.</p>
-        <button onclick="start()"><span>Начать</span></button>
+        <button onclick="start()">Начать</button>
     </div>
 
     <script>
