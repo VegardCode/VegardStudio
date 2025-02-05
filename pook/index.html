@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegard Studio</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+        }
+        .cover {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('mainbanner.jpg'); /* Замените на путь к вашей картинке */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .cover h1 {
+            font-size: 4em;
+            margin: 0;
+            font-family: 'Cursive', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .cover p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .cover button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: transparent;
+            background-color: transparent;
+            border: 3px solid;
+            border-image: linear-gradient(45deg, blue, red, purple) 1;
+            border-radius: 20px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s;
+            animation: borderAnimation 3s linear infinite;
+        }
+        .cover button span {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(45deg, blue, red, purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textAnimation 3s linear infinite;
+        }
+        @keyframes borderAnimation {
+            0% {
+                border-image-source: linear-gradient(45deg, blue, red, purple);
+            }
+            100% {
+                border-image-source: linear-gradient(225deg, blue, red, purple);
+            }
+        }
+        @keyframes textAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cover">
+        <h1>Vegard Studio</h1>
+        <p>Ваше описание здесь</p>
+        <button onclick="start()"><span>Начать</span></button>
+    </div>
+
+    <script>
+        function start() {
+            alert('Кнопка "Начать" нажата!');
+            // Здесь можно добавить код для перехода на другую страницу или выполнения других действий
+        }
+    </script>
+</body>
+</html>
