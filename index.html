@@ -39,7 +39,7 @@
         .cover button {
             padding: 15px 30px;
             font-size: 1.2em;
-            color: transparent;
+            color: white;
             background-color: transparent;
             border: 5px solid;
             border-image: linear-gradient(45deg, blue, red, purple) 1;
@@ -47,9 +47,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(45deg, blue, red, purple);
-            background-size: 300% 300%;
-            animation: gradientAnimation 5s ease infinite;
+            animation: borderAnimation 4s linear infinite;
         }
         .cover button span {
             position: relative;
@@ -58,15 +56,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        @keyframes gradientAnimation {
+        @keyframes borderAnimation {
             0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
+                border-image-source: linear-gradient(45deg, blue, red, purple);
             }
             100% {
-                background-position: 0% 50%;
+                border-image-source: linear-gradient(405deg, blue, red, purple);
             }
         }
     </style>
