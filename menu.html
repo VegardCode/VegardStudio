@@ -26,11 +26,11 @@
             padding: 20px;
             width: 100%;
             max-width: 1200px;
-            margin-top: 20px; /* Добавляем отступ сверху */
+            margin-top: 20px;
         }
         .block {
-            width: 300px;
-            padding: 20px;
+            width: 100%;
+            padding: 2%;
             border: 2px solid transparent;
             border-image: linear-gradient(45deg, blue, red, purple) 1;
             border-radius: 15px;
@@ -75,19 +75,16 @@
                 background-position: 0% 50%;
             }
         }
-        /* Медиазапросы для мобильных устройств */
         @media (max-width: 768px) {
             .container {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: space-around;
+                flex-direction: column;
             }
             .block {
-                width: calc(50% - 20px);
-                padding: 15px;
-                margin-bottom: 20px;
-                box-sizing: border-box;
+                width: 100%;
+                padding: 10px;
             }
+        }
+        @media (max-width: 480px) {
             .block h2 {
                 font-size: 1.5em;
             }
@@ -97,11 +94,6 @@
             .block button {
                 padding: 8px 16px;
                 font-size: 0.9em;
-            }
-        }
-        @media (max-width: 480px) {
-            .block {
-                width: calc(50% - 20px);
             }
         }
     </style>
@@ -146,4 +138,3 @@
     </script>
 </body>
 </html>
-
