@@ -76,8 +76,6 @@
 
     <script>
         let emailAddress = '';
-        let login = '';
-        let domain = '';
 
         async function generateEmail() {
             const loading = document.getElementById('loading');
@@ -88,13 +86,12 @@
             emailDisplay.innerText = '';
             messages.innerHTML = '';
 
-            // Generate a random email address
+            // Generate a random email address using Temp Mail API
             const response = await fetch('https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=1');
             const data = await response.json();
 
             if (data.length > 0) {
                 emailAddress = data[0];
-                [login, domain] = emailAddress.split('@');
                 emailDisplay.innerText = `Ваша временная почта: ${emailAddress}`;
                 loading.style.display = 'none';
 
