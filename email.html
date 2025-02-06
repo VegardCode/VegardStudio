@@ -81,15 +81,8 @@
             messages.innerHTML = '';
 
             try {
-                const response = await fetch('https://api.mail.tm/accounts', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        address: 'example@mail.tm',
-                        password: 'yourpassword'
-                    })
+                const response = await fetch('https://inboxkitten.com/api/v1/email/request', {
+                    method: 'GET',
                 });
 
                 if (!response.ok) {
@@ -97,22 +90,18 @@
                 }
 
                 const data = await response.json();
-                const email = data.address;
+                const email = data.email;
 
                 emailDisplay.textContent = `Ваша временная почта: ${email}`;
                 loading.classList.remove('active');
 
                 // Poll for new messages
                 const intervalId = setInterval(async () => {
-                    const msgResponse = await fetch(`https://api.mail.tm/messages`, {
-                        headers: {
-                            'Authorization': `Bearer ${data.token}`
-                        }
-                    });
+                    const msgResponse = await fetch(`https://inboxkitten.com/api/v1/email/list?email=${email}`);
                     const msgData = await msgResponse.json();
 
-                    if (msgData.hydra.member.length > 0) {
-                        msgData.hydra.member.forEach(msg => {
+                    if (msgData.emails.length > 0) {
+                        msgData.emails.forEach(msg => {
                             const messageElement = document.createElement('div');
                             messageElement.classList.add('message');
                             messageElement.textContent = `From: ${msg.from}, Subject: ${msg.subject}`;
@@ -130,3 +119,4 @@
     </script>
 </body>
 </html>
+
