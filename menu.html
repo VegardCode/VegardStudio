@@ -16,7 +16,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
         }
         .container {
             display: flex;
@@ -26,11 +26,11 @@
             padding: 20px;
             width: 100%;
             max-width: 1200px;
-            margin-top: 20px;
+            margin-top: 40px; /* Добавляем отступ сверху для ПК */
         }
         .block {
-            width: 100%;
-            padding: 2%;
+            width: calc(33.333% - 20px); /* Ширина блока для ПК */
+            padding: 20px;
             border: 2px solid transparent;
             border-image: linear-gradient(45deg, blue, red, purple) 1;
             border-radius: 15px;
@@ -73,6 +73,11 @@
             }
             100% {
                 background-position: 0% 50%;
+            }
+        }
+        @media (max-width: 1024px) {
+            .block {
+                width: calc(50% - 20px); /* Ширина блока для планшетов */
             }
         }
         @media (max-width: 768px) {
