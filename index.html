@@ -11,20 +11,28 @@
             width: 100%;
             height: 100%;
             font-family: 'Arial', sans-serif;
+            overflow: hidden;
         }
         .cover {
             position: relative;
             width: 100%;
             height: 100vh;
-            background-image: url('https://vegardcode.github.io/VegardStudio/img/mainbanner.jpg');
-            background-size: cover;
-            background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
             text-align: center;
+            z-index: 1;
+        }
+        .cover video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
         }
         .cover h1 {
             font-size: 4em;
@@ -43,7 +51,7 @@
             background: linear-gradient(45deg, blue, red, purple);
             background-size: 200% 200%;
             border: none;
-            border-radius: 15px; /* Закруглённые углы */
+            border-radius: 15px;
             cursor: pointer;
             position: relative;
             overflow: hidden;
@@ -64,6 +72,10 @@
 </head>
 <body>
     <div class="cover">
+        <video autoplay loop muted>
+            <source src="https://wdfiles.ru/4RCkA/unwatermark_stable--4-2025-02-06T11_25_47Z.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
         <h1>Vegard Studio</h1>
         <p>На этом сайте вы найдете множество полезных инструментов и бесплатный доступ к нейросетям.</p>
         <button onclick="start()">Начать</button>
@@ -76,4 +88,3 @@
     </script>
 </body>
 </html>
-
